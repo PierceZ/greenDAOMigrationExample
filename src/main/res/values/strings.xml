@@ -7,4 +7,8 @@
     <string name="add">Add</string>
     <string name="click_to_remove">Click a note to remove it</string>
 
+    <string name="user_first_name">First name</string>
+    <string name="user_last_name">Last name</string>
+    <string name="user_full_name">User name:</string>
+
 </resources>

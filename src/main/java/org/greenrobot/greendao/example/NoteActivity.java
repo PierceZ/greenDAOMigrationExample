@@ -58,6 +58,11 @@ public class NoteActivity extends AppCompatActivity {
         // query all notes, sorted a-z by their text
         notesQuery = noteDao.queryBuilder().orderAsc(NoteDao.Properties.Text).build();
         updateNotes();
+
+        List<User> users = daoSession.getUserDao().loadAll();
+        User user = users.get(users.size() - 1);
+        TextView userView = (TextView) findViewById(R.id.textview_user_name);
+        userView.setText(user.getFirstName() + ", " + user.getLastName());
     }
 
     private void updateNotes() {
