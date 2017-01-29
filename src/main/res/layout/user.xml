@@ -16,6 +16,13 @@
         android:layout_height="wrap_content"
         android:text="@string/user_last_name"/>
 
+    <EditText
+        android:id="@+id/user_edittext_age"
+        android:inputType="number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/user_age"/>
+
     <Button
         android:id="@+id/user_button_add"
         android:layout_width="wrap_content"

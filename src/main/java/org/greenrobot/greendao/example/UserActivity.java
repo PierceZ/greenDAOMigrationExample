@@ -23,13 +23,20 @@ public class UserActivity extends AppCompatActivity {
     private void setUpViews() {
         final EditText firstNameView = (EditText) findViewById(R.id.user_edittext_firstname);
         final EditText lastNameView = (EditText) findViewById(R.id.user_edittext_lastname);
+        final EditText ageView = (EditText) findViewById(R.id.user_edittext_age);
 
         findViewById(R.id.user_button_add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DaoSession daoSession = ((App) getApplication()).getDaoSession();
                 UserDao userDao = daoSession.getUserDao();
-                userDao.insert(new User(null, firstNameView.getText().toString(), lastNameView.getText().toString()));
+                int age = 0;
+                try {
+                    age = Integer.valueOf(ageView.getText().toString());
+                } catch (NumberFormatException e) {
+                    // ignore it
+                }
+                userDao.insert(new User(null, age, firstNameView.getText().toString(), lastNameView.getText().toString()));
                 Intent intent = new Intent(UserActivity.this, NoteActivity.class);
                 startActivity(intent);
             }

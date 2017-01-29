@@ -35,6 +35,7 @@ public class DatabaseUpgradeHelper extends DaoMaster.OpenHelper {
     private List<Migration> getMigrations() {
         List<Migration> migrations = new ArrayList<>();
         migrations.add(new MigrationV2());
+        migrations.add(new MigrationV3());
 
         // Sorting just to be safe, in case other people add migrations in the wrong order.
         Comparator<Migration> migrationComparator = new Comparator<Migration>() {
@@ -63,8 +64,23 @@ public class DatabaseUpgradeHelper extends DaoMaster.OpenHelper {
         }
     }
 
+    private static class MigrationV3 implements Migration {
+
+        @Override
+        public Integer getVersion() {
+            return 3;
+        }
+
+        @Override
+        public void runMigration(Database db) {
+            // Add new column to user table
+            db.execSQL("ALTER TABLE " + UserDao.TABLENAME + " ADD COLUMN " + UserDao.Properties.Age.columnName + " INTEGER");
+        }
+    }
+
     private interface Migration {
         Integer getVersion();
+
         void runMigration(Database db);
     }
 }

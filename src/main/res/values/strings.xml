@@ -10,5 +10,6 @@
     <string name="user_first_name">First name</string>
     <string name="user_last_name">Last name</string>
     <string name="user_full_name">User name:</string>
+    <string name="user_age">Age</string>
 
 </resources>

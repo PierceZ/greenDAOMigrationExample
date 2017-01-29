@@ -62,7 +62,7 @@ public class NoteActivity extends AppCompatActivity {
         List<User> users = daoSession.getUserDao().loadAll();
         User user = users.get(users.size() - 1);
         TextView userView = (TextView) findViewById(R.id.textview_user_name);
-        userView.setText(user.getFirstName() + ", " + user.getLastName());
+        userView.setText(user.getFirstName() + ", " + user.getLastName() + " (" + user.getAge() + ")");
     }
 
     private void updateNotes() {

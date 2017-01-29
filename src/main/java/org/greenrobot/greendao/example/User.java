@@ -14,11 +14,13 @@ public class User {
     @Id
     private Long id;
 
+    private int age;
     private String firstName;
     private String lastName;
-    @Generated(hash = 265123291)
-    public User(Long id, String firstName, String lastName) {
+    @Generated(hash = 1233298364)
+    public User(Long id, int age, String firstName, String lastName) {
         this.id = id;
+        this.age = age;
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -42,5 +44,11 @@ public class User {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    public int getAge() {
+        return this.age;
+    }
+    public void setAge(int age) {
+        this.age = age;
     }
 }
