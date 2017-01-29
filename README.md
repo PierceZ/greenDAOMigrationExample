@@ -1,0 +1,1 @@
+An example taken from greenDAO and expanded on to include how to properly migrate data from one schema version to another.
